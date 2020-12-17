@@ -1,0 +1,27 @@
+启动导航节点：
+source install_base/setup.bash
+roslaunch we_navigation navigation.launch
+
+
+启动定位节点：
+source install_mapping/setup.bash
+roslaunch amcl amcl_rtk_online.launch
+
+抓点命令：
+cd liyongbing_ws/
+source devel/setup.bash
+roslaunch record_data auto_get_pose.launch
+
+
+
+发布导航命令：
+source install_base/setup.bash
+rostopic pub /navigation_cmd dg_msgs/String "data: 'pass 3 1'
+sessionId: ''"
+
+重启动laser节点
+source install_base/setup.bash
+roslaunch laser_lms511_node laser.launch
+
+
+
